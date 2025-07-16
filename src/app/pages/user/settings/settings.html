@@ -1,0 +1,24 @@
+<form [formGroup]="updateProfileForm" (ngSubmit)="updateProfile()">
+    <h2>Edit Profile</h2>
+    <app-avatar [avatarPath]="avatarUrl" (upload)="updateAvatar($event)"
+        [isViewOnly]="false" />
+    <div>
+        <label for="email">Email</label>
+        <input id="email" type="text" [value]="userEmail()" disabled />
+    </div>
+    <div>
+        <label for="name">Name</label>
+        <input formControlName="name" id="name" type="text" />
+    </div>
+    <div>
+        <label for="username">Username</label>
+        <input formControlName="username" id="username" type="text" />
+    </div>
+
+    <div>
+        <button type="submit"
+            [disabled]="loading()">{{loading()? 'Loading...' : 'Update'}}</button>
+
+        <button type="button" (click)="signOut()">Sign Out</button>
+    </div>
+</form>

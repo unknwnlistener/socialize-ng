@@ -1,0 +1,32 @@
+<section class="card">
+    <aside><app-avatar [avatarPath]="post().author.avatar_url" /></aside>
+    <div>
+        <header class="flex title">
+            <p class="name">{{post().author.name }}</p>
+            <p class="handle">&#64;{{post().author.username }}</p>
+            <p class="date">{{post().postedAt | date:'short' }}</p>
+        </header>
+        <main>
+            @if((contentLength() < acceptedLength) || showMore()) { <p
+                class="body">
+                {{post().content}}
+                </p>
+                } @else {
+                <p class="body">
+                    {{`${post().content.slice(0,acceptedLength)}&hellip;`}}
+                </p>
+                }
+                @if(contentLength() > acceptedLength) {
+                <button role="button" class="show-more"
+                    (click)="toggleReadMore()">Show
+                    {{showMore()? 'Less': 'More'}}</button>
+                }
+        </main>
+        <footer class="flex">
+            @if(showComments()) {
+            <a [routerLink]="`/${post().id}/comments`" class="with-icon">
+                <app-icon-message-square-text />comments</a>
+            }
+        </footer>
+    </div>
+</section>

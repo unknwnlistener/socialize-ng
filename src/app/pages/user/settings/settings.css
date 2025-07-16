@@ -1,0 +1,16 @@
+form {
+    display: grid;
+    gap: var(--space-m);
+    padding: var(--space-s);
+
+    div:has(label) {
+        display: flex;
+        flex-direction: column;
+    }
+    label ~ input {
+        margin-top: var(--space-3xs);
+    }
+    button + button {
+        margin-left: var(--space-s);
+    }
+}

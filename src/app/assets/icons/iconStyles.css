@@ -1,0 +1,14 @@
+svg {
+    --size: 1.5em;
+    width: var(--size);
+    height: var(--size);
+    display: block;
+    padding: 0;
+}
+
+.size-large {
+    --size: 2em;
+}
+.size-small {
+    --size: 1em;
+}

@@ -1,0 +1,49 @@
+<nav [class.sidebar]="!isPortraitView()"
+    [class.mobile-nav]="isPortraitView()">
+    @if (authService.isLoggedIn()) {
+    <ul role="navigation" class="primary-list">
+        <li>
+            <a routerLinkActive="active-link"
+                [routerLinkActiveOptions]="{exact: true}"
+                routerLink="/"><app-icon-house classes="size-large" />Home</a>
+        </li>
+        <li>
+            <a routerLinkActive="active-link"
+                routerLink="/user/settings"><app-icon-settings
+                    classes="size-large" />Settings</a>
+        </li>
+        <li>
+            <button (click)="openDialog()"><app-icon-circle-plus
+                    classes="size-large" />New
+                Post</button>
+        </li>
+    </ul>
+    <ul class="secondary-list">
+        <li>
+            <a routerLinkActive="active-link" class="bold"
+                routerLink="/user/account"><app-avatar
+                    [avatarPath]="this.profileService.avatarUrl()" />
+                {{this.profileService.profileData().name }}</a>
+        </li>
+        <li><button (click)="signoutUser()">Sign Out</button></li>
+    </ul>
+    } @else {
+    <ul role="navigation" class="primary-list">
+        <li><a routerLinkActive="active-link" routerLink="/"
+                [routerLinkActiveOptions]="{exact: true}"><app-icon-house
+                    classes="size-large" />Home</a>
+        </li>
+    </ul>
+    <ul class="secondary-list">
+        <li><a routerLinkActive="active-link"
+                routerLink="/auth/login"><app-icon-badge-check
+                    classes="size-large" />Login</a>
+        </li>
+        <li><a routerLinkActive="active-link"
+                routerLink="/auth/signup"><app-icon-badge-plus
+                    classes="size-large" />Signup</a>
+        </li>
+
+    </ul>
+    }
+</nav>

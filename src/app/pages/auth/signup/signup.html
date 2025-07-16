@@ -1,0 +1,27 @@
+<section>
+    <div>
+        <h2>Create an account</h2>
+        <p>Already have an account? <a routerLink="/auth/login">Log in</a></p>
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <p class="error">{{formError()}}</p>
+
+            <label for="username">Name:</label>
+            <input placeholder="Enter name" id="name" type="name"
+                formControlName="name" required />
+
+            <label for="username">Username:</label>
+            <input placeholder="Enter username" id="username" type="username"
+                formControlName="username" required />
+
+            <label for="email">Email:</label>
+            <input placeholder="Enter email" id="email" type="email"
+                formControlName="email" required />
+
+            <label for="password">Password:</label>
+            <input placeholder="Enter password" id="password" type="password"
+                formControlName="password" required />
+            <button type="submit"
+                [disabled]="this.loading() || !signupForm.valid">Signup</button>
+        </form>
+    </div>
+</section>

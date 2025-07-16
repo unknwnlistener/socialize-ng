@@ -1,0 +1,5 @@
+<app-feed-section title="Home">
+    @for (post of this.postService.posts(); track post.id ) {
+    <app-postcard [post]="post" />
+    }
+</app-feed-section>
