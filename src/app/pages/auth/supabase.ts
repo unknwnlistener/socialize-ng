@@ -6,7 +6,7 @@ import {
     Session,
     SupabaseClient,
 } from '@supabase/supabase-js';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 import { Profile } from '../../pages/user/user.type';
 import { Router } from '@angular/router';
 import { CreateComment, CreatePost } from '../../posts/post.type';
